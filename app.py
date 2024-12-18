@@ -4,9 +4,9 @@ from docx import Document
 from io import BytesIO
 
 # OpenAI API key setup (use secrets or environment variable for security)
-openai.api_key = st.secrets['openai']
+openai.api_key = st.secrets["openai_api_key"]
 
-# Function to generate PIP using OpenAI API (Updated for Chat API)
+# Function to generate PIP using OpenAI API (Updated for version 0.28+)
 def generate_pip(difficulty, explanation):
     prompt = f"""
     The user is a medical student in a pediatric clerkship and is experiencing difficulty in the area of {difficulty}.
@@ -18,9 +18,9 @@ def generate_pip(difficulty, explanation):
     - Recommended resources or actions for the student
     """
 
-    # Call OpenAI API using the newer Chat API
-    response = openai.chat.Completion.create(
-        model="gpt-4",  # Or use "gpt-3.5-turbo" depending on your plan
+    # Call OpenAI API using the ChatCompletion method (correct for version 0.28+)
+    response = openai.ChatCompletion.create(
+        model="gpt-4",  # Or use "gpt-3.5-turbo" depending on your preference
         messages=[
             {"role": "system", "content": "You are an expert in pediatric medical education."},
             {"role": "user", "content": prompt}
