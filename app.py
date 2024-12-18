@@ -25,7 +25,7 @@ def generate_pip(difficulty, explanation):
             {"role": "system", "content": "You are an expert in pediatric medical education."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=500,  # Adjust based on your preference
+        max_tokens=1000,  # Adjust based on your preference
     )
 
     # Extract the PIP text from the response
