@@ -4,7 +4,7 @@ from docx import Document
 from io import BytesIO
 
 # OpenAI API key setup (use secrets or environment variable for security)
-openai.api_key = st.secrets["openai_api_key"]
+openai.api_key = st.secrets['openai']
 
 # Function to generate PIP using OpenAI API (Updated for Chat API)
 def generate_pip(difficulty, explanation):
